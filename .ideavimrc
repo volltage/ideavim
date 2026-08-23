@@ -1,0 +1,135 @@
+let mapleader=" "
+set so=10
+set relativenumber
+set incsearch
+
+set which-key
+set notimeout
+let g:WhichKey_DefaultDelay=0
+
+" Plugins
+set nerdtree highlightedyank commentary surround argtextobj exchange
+
+nmap <Esc> :noh<CR>
+vmap < <gv "dedent and reselect
+vmap > >gv "same as above
+
+" ================================
+" 2. Shared mode mappings (N + V)vmap < <gv "dedent and reselect
+
+" ================================
+
+map <leader>ca <Action>(ShowIntentionActions)
+map <leader>cf <Action>(ReformatCode)
+
+" ================================
+" 3. Core LSP & Diagnostics (no leader)
+" ================================
+
+nmap gd <Action>(GotoDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gD <Action>(GotoTypeDeclaration)
+nmap gy <Action>(GotoTypeDeclaration) "duplicated bcs of idea limitations
+nmap gr <Action>(FindUsages)
+nmap gs <Action>(GotoSuperMethod)
+nmap K <Action>(QuickJavaDoc)
+nmap <S-Q> <Action>(ParameterInfo)
+nmap [d <Action>(GotoPreviousError)
+nmap ]d <Action>(GotoNextError)
+
+" treesitter incermental equivalent
+nmap <leader>v <Action>(EditorSelectWord)
+nmap <leader>V <Action>(EditorUnSelectWord)
+vmap v <Action>(EditorSelectWord)
+vmap V <Action>(EditorUnSelectWord)
+
+" ====
+" 4. Mappings (<leader> + Menu Group)
+" ====
+
+nmap <leader>cr <Action>(RenameElement)
+nmap <leader>cd <Action>(ShowErrorDescription)
+nmap <leader>cs <Action>(ParameterInfo)
+nmap <leader>co <Action>(FileStructurePopup)
+nmap <leader>ci <Action>(MethodHierarchy)
+
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fr <Action>(RecentFiles)
+nmap <leader>fl <Action>(RecentLocations)
+nmap <leader>fg <Action>(FindInPath)
+nmap <leader>fc <Action>(GotoClass)
+nmap <leader>fs <Action>(GotoSymbol)
+nmap <leader>fa <Action>(SearchEverywhere)
+
+" wut replace find under s?
+nmap <leader>sr <Action>(ReplaceInPath)
+nmap <leader>sb <Action>(Find)
+nmap <leader>sw <Action>(FindWordAtCaret)
+nmap <leader>ss <Action>(FindNext)
+
+"bufers are key focus of nvmi?
+nmap <leader>bn <Action>(NextTab)
+nmap <leader>bp <Action>(PreviousTab)
+nmap <leader>bd <Action>(CloseContent)
+nmap [b <Action>(PreviousTab)
+nmap ]b <Action>(NextTab)
+
+" git
+nmap <leader>gb <Action>(Git.Branches)
+nmap <leader>gc <Action>(CheckinProject)
+nmap <leader>gg <Action>(ActivateVersionControlToolWindow)
+nmap <leader>gd <Action>(Compare.LastVersion)
+nmap <leader>gB <Action>(Annotate)
+nmap <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
+nmap <leader>gn <Action>(VcsShowNextChangeMarker)
+nmap <leader>gp <Action>(VcsShowPrevChangeMarker)
+nmap <leader>gr <Action>(Vcs.RollbackChangedLines)
+
+nmap <leader>db <Action>(ToggleLineBreakpoint)
+nmap <leader>dc <Action>(Resume)
+nmap <leader>do <Action>(StepOver)
+nmap <leader>di <Action>(StepInto)
+nmap <leader>dO <Action>(StepOut)
+nmap <leader>dt <Action>(Stop)
+nmap <leader>de <Action>(EvaluateExpression)
+nmap <leader>dr <Action>(Debug)
+" mute all breakpoints? unmute all breakpoints"
+
+nmap <leader>tr <Action>(Rerun)
+nmap <leader>tt <Action>(RunClass)
+nmap <leader>td <Action>(DebugClass)
+
+nmap <leader>xx <Action>(ActivateProblemsViewToolWindow)
+nmap <leader>xt <Action>(ActivateTODOToolWindow)
+
+nmap <leader>uz <Action>(ToggleZenMode)
+nmap <leader>uc <Action>(CollapseAllRegions)
+nmap <leader>ue <Action>(ExpandAllRegions)
+
+nmap <leader>qq <Action>(CloseProject)
+nmap <leader><leader> <Action>(CodeCompletion)
+
+" =======
+" windows
+
+nmap <leader>wv <Action>(SplitVertically)
+nmap <leader>ws <Action>(SplitHorizontally)
+nmap <leader>wd <Action>(Unsplit)
+nmap <leader>wm <Action>(MaximizeEditorInSplit)
+
+nmap <C-h> <C-W>h
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-l> <C-W>l
+
+nmap <C-Left> :vertical resize -5<CR>
+nmap <C-Right> :vertical resize +5<CR>
+nmap <C-Up> :resize -5<CR>
+nmap <C-Down> :resize +5<CR>
+
+nmap <leader>nb <Action>(ShowNavBar)
+nmap <C-/> <Action>(ActivateTerminalToolWindow)
+nmap <leader>` <Action>(ActivateTerminalToolWindow)
+
+nmap <leader>\ :NERDTreeToggle<CR>
+nmap <leader>/ <Action>(Find)
