@@ -1,6 +1,6 @@
 let mapleader=" "
 set so=10
-set relativenumber
+set number relativenumber
 set incsearch
 
 set which-key
@@ -11,12 +11,11 @@ let g:WhichKey_DefaultDelay=0
 set nerdtree highlightedyank commentary surround argtextobj exchange
 
 nmap <Esc> :noh<CR>
-vmap < <gv "dedent and reselect
-vmap > >gv "same as above
+vmap < <gv
+vmap > >gv
 
 " ================================
-" 2. Shared mode mappings (N + V)vmap < <gv "dedent and reselect
-
+" 2. Shared mode mappings (N + V)
 " ================================
 
 map <leader>ca <Action>(ShowIntentionActions)
@@ -29,7 +28,8 @@ map <leader>cf <Action>(ReformatCode)
 nmap gd <Action>(GotoDeclaration)
 nmap gi <Action>(GotoImplementation)
 nmap gD <Action>(GotoTypeDeclaration)
-nmap gy <Action>(GotoTypeDeclaration) "duplicated bcs of idea limitations
+" duplicated bcs of idea limitations
+nmap gy <Action>(GotoTypeDeclaration)
 nmap gr <Action>(FindUsages)
 nmap gs <Action>(GotoSuperMethod)
 nmap K <Action>(QuickJavaDoc)
